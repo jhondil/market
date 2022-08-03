@@ -2,7 +2,7 @@ from django.db import models
 
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 #
-# from .managers import UserManager
+from .managers import UserManager
 
 class User(AbstractBaseUser, PermissionsMixin):
     # TIPO DE USUARIOS
@@ -51,7 +51,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     REQUIRED_FIELDS = ['full_name']
 
-    # objects = UserManager()
+    objects = UserManager()
 
     def get_short_name(self):
         return self.email

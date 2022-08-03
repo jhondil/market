@@ -4,7 +4,7 @@ from model_utils.models import TimeStampedModel
 # Django
 from django.db import models
 # local
-# from .managers import ProductManager
+from .managers import ProductManager
 
 
 class Marca(TimeStampedModel):
@@ -59,6 +59,7 @@ class Product(TimeStampedModel):
     num_sale = models.PositiveIntegerField('Cantidad de ventas', default=0)
     anulate = models.BooleanField('eliminado', default=False)
 
+    objects = ProductManager()
     class Meta:
         verbose_name = 'Producto'
         verbose_name_plural = 'Productos'
